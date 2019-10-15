@@ -1,5 +1,6 @@
 # config/initializers/carrierwave.rb
 
+
 CarrierWave.configure do |config|
   config.storage    = :aws
   config.aws_bucket = ENV["AWS_BUCKET"]
