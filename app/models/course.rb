@@ -14,4 +14,7 @@ class Course < ApplicationRecord
   def premium
     ! free?
   end
+  def any_enrollment?(u)
+    return enrollments.where(user_id: u.id).any?
+  end
 end
