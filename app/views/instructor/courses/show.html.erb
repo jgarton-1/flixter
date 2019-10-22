@@ -1,29 +1,28 @@
 <script>
- $(function() {
-  $('.lessons').sortable({
-    update: function( event, ui ) {
-      $.ajax({
-        type: 'PUT',
-        url: ui.item.data('update-url'),
-        dataType: 'json',
-        data: { lesson: { row_order_position: ui.item.index() } }
-      });
-    }
-  });
- });
-
   $(function() {
-  $('.sections').sortable({
-    update: function( event, ui ) {
-      $.ajax({
-        type: 'PUT',
-        url: ui.item.data('update-url'),
-        dataType: 'json',
-        data: { section: { row_order_position: ui.item.index() } }
-      });
-    }
+    $('.lessons').sortable({
+      update: function( event, ui ) {
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { lesson: { row_order_position: ui.item.index() } }
+        });
+      }
+    });
+
+
+    $('.sections').sortable({
+      update: function( event, ui ) {
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { section: { row_order_position: ui.item.index() } }
+        });
+      }
+    });
   });
- });
 </script>
 
 <br />
@@ -41,7 +40,7 @@
   <ul>
     <% current_course.sections.rank(:row_order).each do |section| %>
        <li data-update-url="<%= instructor_section_path section %>" class="section-li">
-        <div class="header">
+        <div class="header float-left">
         <span class="fa fa-ellipsis-v"></span>
         <%= section.title %>
         </div>
