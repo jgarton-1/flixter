@@ -11,7 +11,7 @@ class Course < ApplicationRecord
   def free?
     cost.zero?
   end
-  def premium
+  def premium?
     ! free?
   end
   def any_enrollment?(u)
